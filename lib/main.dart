@@ -16,6 +16,6 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Portfolio',
       theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: primaryColor),
       home: const LoginScreen(),
-    );
+    ); //test
   }
 }
