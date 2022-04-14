@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/utils/constants.dart';
-import 'package:portfolio/widgets/text_field_input.dart';
+import 'package:portfolio/widgets/reusable_widgets.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -33,20 +33,21 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             Flexible(
               child: Container(
-                  //adds padding 1/4th compared to the bottom one
+                  //adds padding 1/3rd compared to the bottom one
                   ),
               flex: 1,
             ),
             //logo
             Image.asset(
               'assets/test.png',
-              width: 120,
-              height: 120,
+              width: 220,
+              height: 220,
               fit: BoxFit.fill,
             ),
 
             const SizedBox(height: 65), //padding between logo and inputs
             TextFieldInput(
+              icon: Icons.email,
               hintText: 'Email',
               textInputType: TextInputType.emailAddress,
               textEditingController: _emailController,
@@ -55,31 +56,48 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 20,
             ), //padding between inputs
             TextFieldInput(
+              icon: Icons.lock,
               hintText: 'Password',
               textInputType: TextInputType.text,
               textEditingController: _passwordController,
               isPassword: true,
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 20),
             //button login
             Container(
+              width: 200,
+              alignment: Alignment.center,
+              padding: const EdgeInsets.symmetric(vertical: 12),
+              decoration: const ShapeDecoration(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(30),
+                  ),
+                ),
+                color: Colors.white,
+              ),
               child:
                   const Text('Log in', style: TextStyle(color: primaryColor)),
+            ),
+            const SizedBox(height: 15),
+            //register
+            Container(
+              child: const Text('Register now!',
+                  style: TextStyle(color: primaryColor)),
               width: 150,
               alignment: Alignment.center,
               padding: const EdgeInsets.symmetric(vertical: 12),
               decoration: const ShapeDecoration(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(
-                    Radius.circular(10),
+                    Radius.circular(30),
                   ),
                 ),
                 color: Colors.white,
               ),
             ),
-            const SizedBox(height: 30),
             Flexible(
-              //adds 3/4  padding compared to that  on top
+              //adds 2/3  padding compared to that  on top
               child: Container(),
               flex: 3,
             ),
