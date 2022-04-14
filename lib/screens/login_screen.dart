@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/screens/home_screen.dart';
+import 'package:portfolio/screens/register_screen.dart';
 import 'package:portfolio/utils/constants.dart';
 import 'package:portfolio/widgets/reusable_widgets.dart';
 
@@ -40,8 +42,8 @@ class _LoginScreenState extends State<LoginScreen> {
             //logo
             Image.asset(
               'assets/test.png',
-              width: 220,
-              height: 220,
+              width: 170,
+              height: 150,
               fit: BoxFit.fill,
             ),
 
@@ -56,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 20,
             ), //padding between inputs
             TextFieldInput(
-              icon: Icons.lock,
+              icon: Icons.key,
               hintText: 'Password',
               textInputType: TextInputType.text,
               textEditingController: _passwordController,
@@ -64,36 +66,49 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             const SizedBox(height: 20),
             //button login
-            Container(
-              width: 200,
-              alignment: Alignment.center,
-              padding: const EdgeInsets.symmetric(vertical: 12),
-              decoration: const ShapeDecoration(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(30),
+            InkWell(
+              //inkwell to access onTap method
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => HomeScreen()));
+              },
+              child: Container(
+                width: 200,
+                alignment: Alignment.center,
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                decoration: const ShapeDecoration(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(30),
+                    ),
                   ),
+                  color: Colors.white,
                 ),
-                color: Colors.white,
+                child:
+                    const Text('Log in', style: TextStyle(color: primaryColor)),
               ),
-              child:
-                  const Text('Log in', style: TextStyle(color: primaryColor)),
             ),
             const SizedBox(height: 15),
             //register
-            Container(
-              child: const Text('Register now!',
-                  style: TextStyle(color: primaryColor)),
-              width: 150,
-              alignment: Alignment.center,
-              padding: const EdgeInsets.symmetric(vertical: 12),
-              decoration: const ShapeDecoration(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(30),
+            InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => RegisterScreen()));
+              },
+              child: Container(
+                child: const Text('Register now!',
+                    style: TextStyle(color: primaryColor)),
+                width: 150,
+                alignment: Alignment.center,
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                decoration: const ShapeDecoration(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(30),
+                    ),
                   ),
+                  color: Colors.white,
                 ),
-                color: Colors.white,
               ),
             ),
             Flexible(
